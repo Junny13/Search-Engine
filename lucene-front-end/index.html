@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucene Search</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="fetchJSON.js" defer></script>
+  </head>
+  <body>
+    <div>
+      <div>
+        <form id="form">
+          <h1>Lucene Search</h1>
+          <label for="">Query</label>
+          <input type="text" name="query" id="query" />
+          <label for="">Field</label>
+          <input type="text" name="Field" id="field" />
+          <label for="">Sort</label>
+          <input type="text" name="Sort" id="sort" />
+          <button id="button">Search</button>
+          <div>
+            <button id="docStats">Index Statistics</button>
+            <button id="termStats">Index Statistics</button>
+          </div>
+        </form>
+      </div>
+      <div style="text-align: center; margin-top: 2.5rem">
+        <p style="width: 50%; margin: auto; margin-top: 2.5rem text">Fields</p>
+        <p
+          style="
+            width: 50%;
+            margin: auto;
+            margin-top: 2.5rem;
+            margin-bottom: 3rem;
+          "
+        >
+          Year, Term, YearTerm, Subject, Number, Name, Description, Credit
+          Hours, Section Info, Degree Attributes, Schedule Information, CRN,
+          Section, Status Code, Part of Term, Section Title, Section Credit
+          Hours, Section Status, Enrollment Status, Type, Type Code, Start Time,
+          End Time, Days of Week, Room, Building, Instructors
+        </p>
+      </div>
+      <div style="display: flex; justify-content: space-around">
+        <div id="statsDiv"></div>
+        <div id="termStatsDiv"></div>
+      </div>
+      <div class="container">
+        <!-- Table structure here -->
+        <table class="table table-dark" id="our-table">
+          <thead>
+            <tr>
+              <th>Score</th>
+              <th>Content</th>
+              <th>Document</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+
+      <div class="container">
+        <div id="main-table"></div>
+        <div id="pagination">
+          <p id="results"></p>
+          <button id="previous">Previous</button>
+          <span id="page-no">1 out of </span>
+          <span id="pages">1</span>
+          <button id="next">Next</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
